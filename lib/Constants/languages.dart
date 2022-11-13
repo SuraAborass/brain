@@ -25,8 +25,7 @@ class Languages extends Translations {
 
 
     /////drawer
-    "Home": "الصفحة الرئيسية",
-    "Profile": "الملف الشخصي",
+    "Services" : "خدماتنا",
     "Language": "اللغة",
     "Dark Theme" : "الوضع الداكن",
     "Light Theme": "الوضع الفاتح" ,
@@ -34,6 +33,9 @@ class Languages extends Translations {
     "Choose Language": "اختر لغة",
     "Arabic": "العربية",
     "English": "الانكليزية",
+    "Contact US" : "للتواصل",
+    "Web Development" : "خدمات الويب",
+
   },
 
 
@@ -49,10 +51,14 @@ class Languages extends Translations {
     "My Balance" : "My Balance",
     "Latest Projects": "Latest Projects",
     "See more" : "See more",
+    "Services" : "Services",
+    "Web Development" : "Web Development",
 
 
     /////MyProjectsScreen
     "My Projects": "My Projects",
+
+
 
   }
     };

@@ -1,5 +1,7 @@
 import 'package:brain/Constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../screens/public/project_screen.dart';
 
 
 class LatestProjects extends StatelessWidget {
@@ -26,13 +28,22 @@ class LatestProjects extends StatelessWidget {
                   height: 63,
                   width: deviceSize.width,
                 ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  decoration: const BoxDecoration(color: BrainColors.White,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  height: 51 ,
-                  width: 51 ,
-                  child: Image.asset('assets/images/logo-dark.png'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    //margin: const EdgeInsets.all(8.0),
+                    decoration: const BoxDecoration(color: BrainColors.White,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    height: 51 ,
+                    width: 51 ,
+                    child: MaterialButton(
+                      onPressed: ()=>Get.to( const Project()),
+                      child: Hero(
+                        tag: "to project",
+                        child: Image.asset('assets/images/Mockup6.png'),
+                      ),
+                    ),
+                  ),
                 )
               ],
             ),
@@ -47,14 +58,23 @@ class LatestProjects extends StatelessWidget {
                   height: 63,
                   width: deviceSize.width,
                 ),
-                Container(
-                  margin: const EdgeInsets.all(8.0),
-                  decoration: const BoxDecoration(color: BrainColors.White,
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  height: 51 ,
-                  width: 51 ,
-                  child: Image.asset('assets/images/logo-dark.png'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    //margin: const EdgeInsets.all(8.0),
+                    decoration: const BoxDecoration(color: BrainColors.White,
+                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    height: 51 ,
+                    width: 51 ,
+                    child: MaterialButton(
+                      onPressed: ()=>Get.to( const Project()),
+                      child: Hero(
+                        tag: "to project",
+                        child: Image.asset('assets/images/Mockup6.png'),
+                      ),
+                    ),
 
+                  ),
                 )
               ],
             ),

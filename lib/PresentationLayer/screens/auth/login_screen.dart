@@ -1,3 +1,4 @@
+import 'package:brain/Constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(
-          backgroundColor: BrainColors.lightWhite,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           bottomNavigationBar: Container(
             height : 20,
             color: BrainColors.primary,
@@ -109,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   Radius.circular(20.0))),
                                           child: Text('Continue'.tr, style: title2 ),
                                           onPressed: () {
-                                            Get.to(const MyHomePage());
+                                            Get.toNamed( AppRoutes.homepage);
                                           },
                                         )
                                     )

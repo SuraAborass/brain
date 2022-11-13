@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../BusinessLayer/Controllers/balance_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../../Constants/routes.dart';
@@ -11,7 +12,9 @@ import 'button_navigation_bar.dart';
 import 'my_projects.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+   MyHomePage({Key? key}) : super(key: key);
+  final BalanceController controller = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +51,18 @@ class MyHomePage extends StatelessWidget {
                                                                               Text("My Balance".tr,
                                                                                     style: title3,),
                                                                               const SizedBox(height: 10.0,),
-                                                                             Text("1.500.000 S.P".tr,
-                                                                                    style: title6,),],),),),],),
+                                                                             GetBuilder(
+                                                                                 init: controller,
+                                                                                 builder: (_){
+if(controller.balance==null ||controller.balance==""){
+  return CircularProgressIndicator();
+}
+else{
+  return Text(controller.balance!,
+    style: title6,);
+}
+
+                                                                             })],),),),],),
 
                     Container(height: deviceSize.height,
                               decoration:const BoxDecoration(
