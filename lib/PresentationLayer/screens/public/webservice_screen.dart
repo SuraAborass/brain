@@ -95,6 +95,25 @@ class Webservice extends StatelessWidget {
                                 )
                               ],
                             ),
+                            const SizedBox(height: 10,),
+                            Stack(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(color: BrainColors.primary,
+                                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                                  height: 115,
+                                  width: deviceSize.width,
+                                ),
+                                Padding(padding: EdgeInsets.all(8.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(color: BrainColors.White,
+                                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                                    height: 100,
+                                    width: 100,
+                                  ),
+                                )
+                              ],
+                            ),
                           ],
                         )
                     )

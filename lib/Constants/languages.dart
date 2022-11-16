@@ -33,8 +33,14 @@ class Languages extends Translations {
     "Choose Language": "اختر لغة",
     "Arabic": "العربية",
     "English": "الانكليزية",
-    "Contact US" : "للتواصل",
+    "Contact US" : "معلومات التواصل",
     "Web Development" : "خدمات الويب",
+
+    /////contact us
+    "Address" : "العنوان",
+    "Syria, Damascus, Salhya" : "سوريا، دمشق، الصالحية",
+    "Phone" : "رقم الهاتف",
+    "Social Accounts" : "الحسابات",
 
   },
 
@@ -51,6 +57,18 @@ class Languages extends Translations {
     "My Balance" : "My Balance",
     "Latest Projects": "Latest Projects",
     "See more" : "See more",
+    "Home": "Home",
+    "Notifications": "Notifications",
+    "Payment": "Payment",
+    "Profile": "Profile",
+    "Language": "Language",
+    "Dark Theme" : "Dark Theme",
+    "Light Theme": "Light Theme" ,
+    "Logout": "Logout",
+    "Choose Language": "Choose Language",
+    "Arabic": "Arabic",
+    "English": "English",
+    "Contact US" : "Contact US",
     "Services" : "Services",
     "Web Development" : "Web Development",
 
@@ -58,6 +76,12 @@ class Languages extends Translations {
     /////MyProjectsScreen
     "My Projects": "My Projects",
 
+
+    /////contact us
+    "Address" : "Address",
+    "Syria, Damascus, Salhya" : "Syria, Damascus, Salhya",
+    "Phone" : "Phone",
+    "Social Accounts" : "Social Accounts",
 
 
   }

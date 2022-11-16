@@ -2,12 +2,13 @@ import 'package:brain/Constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../BusinessLayer/Controllers/auth_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../public/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+   const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -15,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool passwordvisible = true;
+  final AuthController verify  = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   Radius.circular(20.0))),
                                           child: Text('Continue'.tr, style: title2 ),
                                           onPressed: () {
-                                            Get.toNamed( AppRoutes.homepage);
+                                            verify.authed;
+                                            Get.toNamed(AppRoutes.homepage);
                                           },
                                         )
                                     )

@@ -7,7 +7,7 @@ class BalanceController extends GetxController{
   BalanceClient client = BalanceClient();
 
     void onInit() async {
-        balance = await client.getBalance(2);
+        balance = await client.getBalance(3);
       update();
     super.onInit();
   }

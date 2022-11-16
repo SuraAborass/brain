@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/drawer.dart';
+import '../../widgets/title.dart';
 import 'button_navigation_bar.dart';
 import 'package:get/get.dart';
 
@@ -33,8 +34,7 @@ class MyProjects extends StatelessWidget {
                 children: [
                      Padding(
                        padding: const EdgeInsets.all(10.0),
-                       child: Text("My Projects".tr,
-                        style: title5,),
+                       child: pageTitle("My Projects".tr,),
                      ),
                  //const Icon(Icons.arrow_circle_down,color: BrainColors.primary,)
                 ]),

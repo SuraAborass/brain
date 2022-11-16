@@ -27,3 +27,9 @@ TextStyle(color: BrainColors.primary, fontWeight: FontWeight.bold ,fontSize: 18)
 
 const title9 =
 TextStyle(color: BrainColors.grey, fontWeight: FontWeight.bold ,fontSize: 12);
+
+const title10 =
+TextStyle(color: BrainColors.White, fontWeight: FontWeight.normal ,fontSize: 13);
+
+const title11 =
+TextStyle(color: BrainColors.secondary, fontWeight: FontWeight.bold ,fontSize: 20);

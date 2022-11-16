@@ -5,6 +5,7 @@ import '../../Constants/colors.dart';
 import 'package:brain/theme_service.dart';
 
 import '../../Constants/font_styles.dart';
+import '../screens/public/contact_us_screen.dart';
 import '../screens/public/services_screen.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -84,9 +85,9 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.contact_support,color: BrainColors.primary),
-              title:  Text('Contact US'.tr, style: title7),
+              title:  Text("Contact US".tr, style: title7),
               onTap:() {
-                Get.toNamed(AppRoutes.contactus);
+                Get.to(ContactUs());
               },
             ),
             ListTile(

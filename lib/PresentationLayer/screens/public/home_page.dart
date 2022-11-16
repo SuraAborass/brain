@@ -54,15 +54,13 @@ class MyHomePage extends StatelessWidget {
                                                                              GetBuilder(
                                                                                  init: controller,
                                                                                  builder: (_){
-if(controller.balance==null ||controller.balance==""){
-  return CircularProgressIndicator();
-}
-else{
-  return Text(controller.balance!,
-    style: title6,);
-}
-
-                                                                             })],),),),],),
+                                                                                   if(controller.balance==null ||controller.balance==""){
+                                                                                      return CircularProgressIndicator();}
+                                                                                   else{
+                                                                                     return Text(controller.balance!,
+                                                                                       style: title6,);
+                                                                                   }
+                                                                                 })],),),),],),
 
                     Container(height: deviceSize.height,
                               decoration:const BoxDecoration(

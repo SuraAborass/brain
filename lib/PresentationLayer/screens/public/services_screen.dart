@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../Constants/font_styles.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
+import '../../widgets/title.dart';
 import 'button_navigation_bar.dart';
 
 class Services extends StatelessWidget {
@@ -34,8 +35,7 @@ class Services extends StatelessWidget {
             children: [
             Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Text('Services'.tr,
-              style: title5,),
+            child: pageTitle('Services'.tr),
           ),
           ]),
             Padding(padding:EdgeInsets.only(left: 20,right: 20 ),
@@ -47,8 +47,12 @@ class Services extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(color: BrainColors.primary,
                         borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              height: 115,
-              width: deviceSize.width,
+                        height: 115,
+                        width: deviceSize.width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('web development'.tr ,textAlign: TextAlign.center,style: title10,),
+                      ),
                     ),
                     Padding(padding: EdgeInsets.all(8.0),
                     child: Container(
@@ -56,6 +60,10 @@ class Services extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(10.0))),
                       height: 100,
                       width: 100,
+                      child: MaterialButton(
+                          onPressed: ()=> Get.to(Webservice()),
+                          child: Image.asset('assets/images/N3DOqZpaj7rHvo3VGqNU.png')),
+
                     ))
                   ],
                 ),
@@ -74,6 +82,7 @@ class Services extends StatelessWidget {
                               borderRadius: BorderRadius.all(Radius.circular(10.0))),
                           height: 100,
                           width: 100,
+                          child: Image.asset('assets/images/M9TFGxmTmZ7jfCs0ZkZa.png'),
                         ))
                   ],
                 ),
@@ -92,9 +101,8 @@ class Services extends StatelessWidget {
                               borderRadius: BorderRadius.all(Radius.circular(10.0))),
                           height: 100,
                           width: 100,
-                          child: MaterialButton(
-                            onPressed: ()=>Get.to(Webservice()),
-                            ),
+                          child: Image.asset('assets/images/tr2F3D9NRi7ekDysfxz9.png'),
+
                           ),
                         )
                   ],
