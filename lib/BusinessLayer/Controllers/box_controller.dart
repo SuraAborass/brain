@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -12,12 +11,12 @@ class BoxController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    user = null;
     authed = box.read<bool>('authed');
-    if (authed != null) {
+    if (authed == true) {
       user = User.fromBoxMap(box.read('user'));
       print(user);
     }
+
 
   }
 }

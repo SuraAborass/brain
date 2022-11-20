@@ -1,8 +1,6 @@
 import 'package:brain/theme_service.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
@@ -11,12 +9,11 @@ import 'package:get/get.dart';
 
 
 
-SharedPreferences? sharedpref;
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  sharedpref = await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 

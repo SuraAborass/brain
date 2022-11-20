@@ -2,9 +2,11 @@ import 'package:brain/Constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../BusinessLayer/Controllers/auth_controller.dart';
+
+import '../../../BusinessLayer/Controllers/login_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/font_styles.dart';
+import '../../widgets/title.dart';
 import '../public/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,7 +18,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool passwordvisible = true;
-  final AuthController verify  = Get.find();
+  final LoginController _loginController = Get.find();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ? TextDirection.rtl
           : TextDirection.ltr,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           bottomNavigationBar: Container(
             height : 20,
@@ -55,24 +60,30 @@ class _LoginScreenState extends State<LoginScreen> {
                           const SizedBox(
                             height: 10,
                           ),
-                          Text(
-                            'Login'.tr,
-                            style: title,
-                            textAlign: TextAlign.left,
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
+                          Row(
+                              children: [
+                                pageTitle('Login'.tr),
+                              ]),
                           TextFormField(
+                            controller: _loginController.emailTextController,
+                            keyboardType: TextInputType.emailAddress,
+                            maxLines: 1,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.email,color: BrainColors.primary),
                               hintText: 'Enter your email or number'.tr,
                             ),
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Email is required.';
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(
                             height: 10,
                           ),
                           TextFormField(
+                            controller: _loginController.passwordTextController,
                             decoration: InputDecoration(
                               prefixIcon: const Icon(Icons.lock_open_rounded,color: BrainColors.primary),
                               suffixIcon: IconButton(
@@ -89,36 +100,31 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             keyboardType: TextInputType.visiblePassword,
                             obscureText: passwordvisible,
+                            maxLines: 1,
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Password is required.';
+                              }
+                              return null;
+                            },
+
                           ),
                           const SizedBox(
                             height: 30,
                           ),
-                          Center(
-                              child: Expanded(
-                                child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(20.0),
-                                        ),
-                                        color: BrainColors.primary),
-                                    height: 52,
-                                    width: deviceSize.width,
-                                    child: Center(
-                                        child: MaterialButton(
-                                          height: 47,
-                                          minWidth: deviceSize.width,
-                                          shape: const RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(20.0))),
-                                          child: Text('Continue'.tr, style: title2 ),
-                                          onPressed: () {
-                                            verify.authed;
-                                            Get.toNamed(AppRoutes.homepage);
-                                          },
-                                        )
-                                    )
-                                ),
-                              )),
+                          MaterialButton(
+                            height: 52,
+                            minWidth: deviceSize.width,
+                            color:BrainColors.primary ,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(20.0))),
+                            child: Text('Continue'.tr, style: title2 ),
+                            onPressed: () {
+                              _loginController.logged();
+                              //Get.toNamed(AppRoutes.homepage);
+                            },
+                          ),
                         ],
                       )
                   )
