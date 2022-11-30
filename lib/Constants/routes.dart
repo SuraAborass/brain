@@ -1,5 +1,4 @@
 class AppRoutes {
-
   static const splashScreen = "/";
   static const homepage = "/homepage";
   static const loginPage = "/login";
@@ -10,7 +9,4 @@ class AppRoutes {
   static const userprofile = "/homepage/profile";
   static const contactus = "/homepage/contactus";
   static const project = "/homepage/project";
-
-
-
 }

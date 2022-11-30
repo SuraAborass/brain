@@ -34,17 +34,17 @@ class ContactUs extends StatelessWidget {
             SizedBox(height: 30,),
             ListTile(
                   leading: Icon(Icons.location_on_sharp,color: BrainColors.secondary,),
-                  title: Text("Address".tr,style: title11,),
-                  subtitle: Text("Syria, Damascus, Salhya".tr ,style: title9 ,),
+                  title: Text("Address".tr,style: AppTextStyles.boldBodyMedium,),
+                  subtitle: Text("Syria, Damascus, Salhya".tr ,style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.grey) ,),
               ),
             ListTile(
               leading: Icon(Icons.phone,color: BrainColors.secondary,),
-              title: Text("Phone".tr,style: title11,),
-              subtitle: Text("00000000".tr ,style: title9 ,),
+              title: Text("Phone".tr,style: AppTextStyles.boldBodyMedium,),
+              subtitle: Text("00000000".tr ,style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.grey) ,),
             ),
             ListTile(
               leading: Icon(Icons.switch_account_sharp,color: BrainColors.secondary,),
-              title: Text("Social Accounts".tr,style: title11,),
+              title: Text("Social Accounts".tr,style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.grey),),
               subtitle: Row(
                 children: [
                   Icon(Icons.facebook),
@@ -66,7 +66,7 @@ class ContactUs extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset('assets/images/Icon weather-lightning.png',height: 22, width: 17,),
-                    Text("  Quick Support",style: title2,),
+                    Text("  Quick Support",style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.grey),),
                   ],),
               ),
             ),

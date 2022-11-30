@@ -6,8 +6,6 @@ class BalanceClient {
     try {
       var response = await http.get(Uri.parse("https://brain.sy/api/v1/user/${id}/balance"));
       if (response.statusCode == 200) {
-        print("BODY IS : ");
-        print(response.body);
         return response.body;
       } else {
         return "";

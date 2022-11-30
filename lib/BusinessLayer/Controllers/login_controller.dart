@@ -1,41 +1,38 @@
-import 'package:brain/DataAccessLayer/Clients/user_client.dart';
+import 'package:brain/BusinessLayer/Controllers/user_controller.dart';
+import 'package:brain/PresentationLayer/widgets/snackbars.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Constants/routes.dart';
 import '../../DataAccessLayer/Models/user.dart';
-import '../Repositories/user_repo.dart';
-import 'box_controller.dart';
+import '../../DataAccessLayer/Repositories/user_repo.dart';
 
-class LoginController extends GetxController{
+class LoginController extends GetxController {
+  var emailTextController = TextEditingController();
+  var passwordTextController = TextEditingController();
 
- var emailTextController = TextEditingController() ;
- var passwordTextController = TextEditingController();
- final BoxController boxController = Get.find();
- var client = UserClient();
- var repo = UserRepo();
- String? authed;
+  var passwordvisible = false.obs;
+  var sending = false.obs;
+  final UserController userController = Get.find();
+  var repo = UserRepo();
 
   @override
   void onInit() async {
-    emailTextController = TextEditingController() ;
-    passwordTextController = TextEditingController();
     super.onInit();
   }
 
-  void logged() async{
-
-
-      User? authed = await repo.login(emailTextController.value.text, passwordTextController.value.text);
-      if (authed != null) {
-        print(authed.toMap());
-        boxController.box.write('user', authed.toMap());
-        boxController.box.write('authed', true);
-        boxController.user = authed;
-        boxController.update();
-        Get.toNamed(AppRoutes.homepage);
-      }
+  Future<void> login() async {
+    sending.value = true;
+    User? user = await repo.login(
+        emailTextController.value.text, passwordTextController.value.text);
+    if (user != null) {
+      await userController.saveAuthState(user);
+    } else {
+      Snackbars.showError("يرجى التأكد من البيانات المدخلة");
     }
-
-
+    sending.value = false;
   }
+
+  void togglePasswordVisible() {
+    passwordvisible.value = !passwordvisible.value;
+  }
+}

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../Constants/font_styles.dart';
 
-
 Widget pageTitle(title) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
@@ -12,10 +11,9 @@ Widget pageTitle(title) {
       children: [
         Text(
           title,
-          style: title5,
+          style: AppTextStyles.boldBodylarge,
         ),
       ],
     ),
   );
 }
-

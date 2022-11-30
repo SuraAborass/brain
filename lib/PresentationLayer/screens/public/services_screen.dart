@@ -51,7 +51,7 @@ class Services extends StatelessWidget {
                         width: deviceSize.width,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('web development'.tr ,textAlign: TextAlign.center,style: title10,),
+                        child: Text('web development'.tr ,textAlign: TextAlign.center,style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.White),),
                       ),
                     ),
                     Padding(padding: EdgeInsets.all(8.0),

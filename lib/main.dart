@@ -1,17 +1,14 @@
 import 'package:brain/theme_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
 import 'BusinessLayer/bindings/init_bindings.dart';
 import 'Constants/languages.dart';
 import 'Constants/router.dart';
 import 'Constants/theme.dart';
-import 'package:get/get.dart';
 
-
-
-
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   runApp(const MyApp());
@@ -26,14 +23,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       translations: Languages(),
-      locale:Get.deviceLocale,
+      locale: Get.deviceLocale,
       fallbackLocale: const Locale.fromSubtags(languageCode: "ar"),
       initialBinding: InitBinding(),
-      theme: AppThemes.lightTheme,
+      theme: AppThemes.lightTheme
+          .copyWith(textTheme: TextTheme().apply(fontFamily: "Cairo")),
       darkTheme: AppThemes.darkTheme,
       themeMode: ThemeService().theme,
       getPages: router,
     );
   }
 }
-

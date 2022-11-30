@@ -1,0 +1,33 @@
+import 'package:brain/Constants/routes.dart';
+import 'package:brain/DataAccessLayer/Clients/box_client.dart';
+import 'package:get/get.dart';
+
+import '../../DataAccessLayer/Models/user.dart';
+
+class UserController extends GetxController {
+  final BoxClient boxClient = BoxClient();
+
+  late User? user;
+  bool authed = false;
+  @override
+  void onInit() async {
+    super.onInit();
+    authed = await boxClient.getAuthState();
+
+    if (authed) {
+      user = await boxClient.getAuthedUser();
+      print(user!.toMap());
+    }
+    update();
+  }
+
+  Future<void> saveAuthState(User user) async {
+    await boxClient.setAuthedUser(user);
+    Get.offAndToNamed(AppRoutes.homepage);
+  }
+
+  Future<void> logout() async {
+    await boxClient.removeUserData();
+    Get.toNamed(AppRoutes.loginPage);
+  }
+}

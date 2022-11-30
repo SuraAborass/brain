@@ -34,7 +34,7 @@ class Webservice extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: Text('Web Development'.tr,
-                              style: title5,),
+                              style: AppTextStyles.boldBodyMedium.apply(color: BrainColors.grey),),
                           ),
                         ]),
                     Padding(padding:EdgeInsets.only(left: 20,right: 20 ),
