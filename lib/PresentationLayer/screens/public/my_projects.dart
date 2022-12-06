@@ -9,7 +9,9 @@ import 'button_navigation_bar.dart';
 
 class MyProjects extends StatelessWidget {
   MyProjects({Key? key}) : super(key: key);
+
   final ProjectController controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Directionality(

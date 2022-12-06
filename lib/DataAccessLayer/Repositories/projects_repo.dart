@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:brain/DataAccessLayer/Clients/projects_client.dart';
-
 import '../Models/project.dart';
 
 class ProjectsRepo {

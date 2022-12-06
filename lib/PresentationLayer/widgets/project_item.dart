@@ -8,6 +8,7 @@ import '../../Constants/font_styles.dart';
 
 class ProjectItem extends StatelessWidget {
   ProjectItem({Key? key, required this.project});
+
   final UserProject project;
   @override
   Widget build(BuildContext context) {

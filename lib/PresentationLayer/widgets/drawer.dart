@@ -1,4 +1,5 @@
 import 'package:brain/BusinessLayer/Controllers/user_controller.dart';
+import 'package:brain/Constants/routes.dart';
 import 'package:brain/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,10 +7,11 @@ import 'package:get/get.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../screens/public/contact_us_screen.dart';
-import '../screens/public/services_screen.dart';
+
 
 class MyDrawer extends StatelessWidget {
-  MyDrawer({Key? key}) : super(key: key);
+   MyDrawer({Key? key,}) : super(key: key);
+
 
   final themeData = Get.isDarkMode ? ThemeData.dark() : ThemeData.light();
   final ThemeService _themeService = Get.find();
@@ -60,7 +62,7 @@ class MyDrawer extends StatelessWidget {
                 style: AppTextStyles.normalBodySmall
                     .apply(color: BrainColors.grey)),
             onTap: () {
-              Get.to(Services());
+              Get.toNamed(AppRoutes.services);
             },
           ),
           ListTile(
