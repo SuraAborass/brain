@@ -19,6 +19,7 @@ class AppTextStyles {
       fontWeight: FontWeight.normal,
       fontSize: 16,
       fontFamily: 'Cairo');
+
   static const boldBodyMedium = TextStyle(
       color: BrainColors.primary,
       fontWeight: FontWeight.bold,
@@ -30,6 +31,7 @@ class AppTextStyles {
       fontWeight: FontWeight.normal,
       fontSize: 12,
       fontFamily: 'Cairo');
+
   static const boldBodySmall = TextStyle(
       color: BrainColors.primary,
       fontWeight: FontWeight.bold,

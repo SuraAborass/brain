@@ -1,16 +1,10 @@
 import 'package:brain/DataAccessLayer/Models/service.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../BusinessLayer/Controllers/services_controller.dart';
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
-import '../screens/public/services_screen.dart';
 
 class ServicesItem extends StatelessWidget {
    ServicesItem({Key? key, required this.service,}) : super(key: key);
-
-
    final  BrainService service ;
 
   @override
@@ -21,20 +15,24 @@ class ServicesItem extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 8),
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-            color: BrainColors.lightWhite,
+            color: BrainColors.primary,
             borderRadius: BorderRadius.all(Radius.circular(10.0))),
         child: Row(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: BrainColors.White,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  image: DecorationImage(
-                      image: NetworkImage(service.icon), fit: BoxFit.cover)),
-              height: 75,
-              width: 75,
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: BrainColors.White,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    image: DecorationImage(
+                        image: NetworkImage(service.icon), fit: BoxFit.cover)),
+                   height: 150,
+                width: 75,
+              ),
             ),
             Expanded(
+              flex: 3,
                 child: Padding(
                   padding:
                   const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -42,17 +40,22 @@ class ServicesItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        service.name,
-                        style: AppTextStyles.boldBodyMedium,
+                      Container(
+                        child: Text(
+                          service.name,
+                          style: AppTextStyles.boldBodyMedium
+                          .apply(color: BrainColors.White),
+                        ),
                       ),
                       SizedBox(
                         height: 1,
                       ),
-                      Text(
-                        service.description,
-                        style: AppTextStyles.normalBodySmall
-                            .apply(color: Colors.grey),
+                      Container(
+                        child: Text(
+                          service.description,
+                          style: AppTextStyles.normalBodySmall
+                              .apply(color: BrainColors.White),
+                        ),
                       )
                     ],
                   ),

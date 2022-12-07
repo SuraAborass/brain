@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:brain/DataAccessLayer/Models/service.dart';
-
 import '../Clients/services_client.dart';
-import '../Models/service.dart';
+
 
 class ServicesRepo{
   ServiceClient client =ServiceClient();
@@ -17,7 +15,6 @@ class ServicesRepo{
           .map<BrainService>((json) => BrainService.fromMap(json))
           .toList();
     }
-
     return [];
   }
 }

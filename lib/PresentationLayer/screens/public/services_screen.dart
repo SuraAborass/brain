@@ -1,9 +1,7 @@
 import 'package:brain/BusinessLayer/Controllers/services_controller.dart';
-import 'package:brain/PresentationLayer/widgets/services_item.dart';
+import 'package:brain/PresentationLayer/widgets/service_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../DataAccessLayer/Models/service.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/title.dart';
@@ -11,13 +9,10 @@ import 'button_navigation_bar.dart';
 
 class Services extends StatelessWidget {
    Services({Key? key}) : super(key: key);
-
-
   final ServicesController _servicesController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-
     return Directionality(
       textDirection: Get.locale!.languageCode == "ar"
           ? TextDirection.rtl
@@ -44,7 +39,7 @@ class Services extends StatelessWidget {
               children: [
                 const SizedBox(height: 10,),
                 SizedBox(
-                  height: 200,
+                  height: Get.height-300,
                   child: ListView.builder(
                     itemCount: _servicesController.services.length,
                     itemBuilder: (BuildContext context, int index) {
