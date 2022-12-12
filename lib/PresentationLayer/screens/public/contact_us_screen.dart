@@ -22,7 +22,7 @@ class ContactUs extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         drawer: MyDrawer(),
-        appBar: customAppBar(context),
+        appBar: myAppBar(context),
         bottomNavigationBar: const NavBar(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

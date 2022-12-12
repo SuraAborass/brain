@@ -53,7 +53,7 @@ class MyDrawer extends StatelessWidget {
             title: Text('Profile'.tr,
                 style: AppTextStyles.normalBodySmall
                     .apply(color: BrainColors.grey)),
-            onTap: () {},
+            onTap: ()=> Get.toNamed(AppRoutes.userprofile),
           ),
           ListTile(
             leading: const Icon(Icons.home_repair_service,
@@ -94,18 +94,21 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Get.defaultDialog(
                   title: 'Choose Language'.tr,
-                  titleStyle: Theme.of(context).textTheme.bodyLarge,
+                  titleStyle: AppTextStyles.normalBodySmall
+                      .apply(color: BrainColors.grey),
                   content: Column(
                     children: [
                       ListTile(
-                        title: Text("Arabic".tr),
+                        title: Text("Arabic".tr,style: AppTextStyles.normalBodySmall
+                            .apply(color: BrainColors.grey),),
                         onTap: () {
                           Get.updateLocale(const Locale('ar', 'AR'));
                           Get.back();
                         },
                       ),
                       ListTile(
-                        title: Text("English".tr),
+                        title: Text("English".tr,style: AppTextStyles.normalBodySmall
+                            .apply(color: BrainColors.grey),),
                         onTap: () {
                           Get.updateLocale(const Locale('en', 'US'));
                           Get.back();

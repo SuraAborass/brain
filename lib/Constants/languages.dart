@@ -39,6 +39,9 @@ class Languages extends Translations {
           "Syria, Damascus, Salhya": "سوريا، دمشق، الصالحية",
           "Phone": "رقم الهاتف",
           "Social Accounts": "الحسابات",
+
+          /////profile screen
+          "Update Profile Info" : "تحديث معلوماتك",
         },
         'en_US': {
           /////LoginScreen
@@ -74,6 +77,9 @@ class Languages extends Translations {
           "Syria, Damascus, Salhya": "Syria, Damascus, Salhya",
           "Phone": "Phone",
           "Social Accounts": "Social Accounts",
+
+          /////profile screen
+          "Update Profile Info" : "Update Profile Info",
         }
       };
 }

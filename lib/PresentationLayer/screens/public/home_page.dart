@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: BrainColors.primary,
         drawer: MyDrawer(),
-        appBar: customAppBar(context),
+        appBar: myAppBar(context),
         bottomNavigationBar: const NavBar(),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

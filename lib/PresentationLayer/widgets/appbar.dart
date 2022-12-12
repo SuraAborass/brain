@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../Constants/colors.dart';
 
 
-PreferredSizeWidget customAppBar(BuildContext context) {
+PreferredSizeWidget myAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: BrainColors.primary,
       elevation: 0,

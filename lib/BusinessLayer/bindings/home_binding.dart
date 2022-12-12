@@ -2,6 +2,7 @@ import 'package:brain/BusinessLayer/Controllers/balance_controller.dart';
 import 'package:brain/BusinessLayer/Controllers/projects_controller.dart';
 import 'package:get/get.dart';
 
+import '../Controllers/notification_controller.dart';
 import '../Controllers/services_controller.dart';
 
 class HomeBinding extends Bindings {
@@ -10,5 +11,6 @@ class HomeBinding extends Bindings {
     Get.put<BalanceController>(BalanceController());
     Get.put<ProjectController>(ProjectController());
     Get.put<ServicesController>(ServicesController());
+    Get.put<NotificationController>(NotificationController());
   }
 }

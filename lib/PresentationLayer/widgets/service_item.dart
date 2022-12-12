@@ -5,7 +5,7 @@ import '../../Constants/font_styles.dart';
 
 class ServicesItem extends StatelessWidget {
    ServicesItem({Key? key, required this.service,}) : super(key: key);
-   final  BrainService service ;
+   final  BrainService service;
 
   @override
   Widget build(BuildContext context) {

@@ -6,6 +6,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import '../PresentationLayer/screens/auth/login_screen.dart';
 import '../PresentationLayer/screens/public/home_page.dart';
+import '../PresentationLayer/screens/public/notification_screen.dart';
+import '../PresentationLayer/screens/public/profile_screen.dart';
 import '../PresentationLayer/screens/public/splash_screen.dart';
 
 
@@ -28,8 +30,13 @@ List<GetPage<dynamic>> router = [
       page: () => Services(),
       binding: HomeBinding()
   ),
-  /*GetPage(
-    name: AppRoutes.homepage,
-    page: () => Webservice(),
-  ), */
+  GetPage(name: AppRoutes.notifications,
+      page: () => Notifications(),
+      binding: HomeBinding()
+  ),
+  GetPage(name: AppRoutes.userprofile,
+      page: () => Profile(),
+      binding: HomeBinding()
+  ),
+
 ];

@@ -22,7 +22,7 @@ class UserClient {
   Future<dynamic> addInfo(id, email, password) async {
     var response =
         await http.post(Uri.parse("https://brain.sy/api/v1/login"), body: {
-      "id": id,
+      "id": id.toString(),
       "email": email,
       "password": password,
     });
