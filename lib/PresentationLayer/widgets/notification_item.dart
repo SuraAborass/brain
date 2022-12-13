@@ -1,12 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
 import '../../DataAccessLayer/Models/notification.dart';
 
 class NotificationItem extends StatelessWidget {
-   NotificationItem({Key? key,required this.notification}) : super(key: key);
+  NotificationItem({Key? key, required this.notification}) : super(key: key);
 
-   final UserNotification notification;
+  final UserNotification notification;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class NotificationItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 8),
       //padding: EdgeInsets.all(5),
       width: deviceSize.width,
+      height: 100,
       decoration: BoxDecoration(
           color: BrainColors.White,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -24,34 +27,32 @@ class NotificationItem extends StatelessWidget {
           Expanded(
             flex: 1,
             child: CircleAvatar(
-              radius: 100,
-            backgroundImage: NetworkImage(notification.from_user.avatar),
+              radius: 40,
+              backgroundImage: CachedNetworkImageProvider(
+                  notification.from_user.avatar,
+                  maxHeight: 200,
+                  maxWidth: 200),
             ),
           ),
           Expanded(
               flex: 3,
               child: Padding(
                 padding:
-                const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       notification.title,
                       style: AppTextStyles.boldBodyMedium
                           .apply(color: BrainColors.grey),
                     ),
-                    SizedBox(
-                      height: 1,
-                    ),
                     Text(
                       notification.description,
-                      style: AppTextStyles.normalBodySmall
-                          .apply(color: BrainColors.grey),
-                    ),
-                    SizedBox(
-                      height: 1,
+                      style: AppTextStyles.normalBodySmall.apply(
+                          color: BrainColors.grey,
+                          overflow: TextOverflow.ellipsis),
                     ),
                     Text(
                       notification.time,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../BusinessLayer/Controllers/notification_controller.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/notification_item.dart';
 import '../../widgets/title.dart';
 import 'button_navigation_bar.dart';
-
 
 class Notifications extends StatelessWidget {
   Notifications({Key? key}) : super(key: key);
@@ -15,42 +15,42 @@ class Notifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(textDirection: Get.locale!.languageCode == "ar"
-        ? TextDirection.rtl
-        : TextDirection.ltr,
+    return Directionality(
+        textDirection: Get.locale!.languageCode == "ar"
+            ? TextDirection.rtl
+            : TextDirection.ltr,
         child: Scaffold(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            drawer: MyDrawer(),
-            appBar: myAppBar(context),
-            bottomNavigationBar: const NavBar(),
-            body: SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: pageTitle('Notifications'.tr),
-                          ),
-                        ]),
-                    Column(
-                      children: [
-                        const SizedBox(height: 10,),
-                        SizedBox(
-                          height: Get.height-300,
-                          child: ListView.builder(
-                            itemCount: _controller.userNotifications.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return NotificationItem(notification: _controller.userNotifications[index],);
-                            },
-                          ),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          drawer: MyDrawer(),
+          appBar: myAppBar(context),
+          bottomNavigationBar: const NavBar(),
+          body: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  pageTitle('Notifications'.tr),
+                  Column(
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                        height: Get.height - 300,
+                        child: ListView.builder(
+                          itemCount: _controller.userNotifications.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return NotificationItem(
+                              notification:
+                                  _controller.userNotifications[index],
+                            );
+                          },
                         ),
-                      ],
-                    )
-                  ]),
-            ),
+                      ),
+                    ],
+                  )
+                ]),
+          ),
         ));
   }
 }

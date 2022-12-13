@@ -7,9 +7,11 @@ import '../../DataAccessLayer/Models/user.dart';
 import '../../DataAccessLayer/Repositories/user_repo.dart';
 import '../../PresentationLayer/widgets/snackbars.dart';
 
-class ProfileController extends GetxController{
+class ProfileController extends GetxController {
+  TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
 
   final UserController _userController = Get.find();
 
@@ -19,6 +21,8 @@ class ProfileController extends GetxController{
   void onInit() {
     if (_userController.user != null) {
       emailController.text = _userController.user!.email;
+      nameController.text = _userController.user!.name;
+      mobileController.text = _userController.user!.mobileNumber.toString();
     }
     super.onInit();
   }
@@ -34,15 +38,16 @@ class ProfileController extends GetxController{
   Future<void> updateInfo() async {
     print("start Updatring ");
     loading.value = true;
-    User? user = await userRepo.addInfo(
+    User? user = await userRepo.updateInfo(
         _userController.user!.id,
+        nameController.value.text,
         emailController.value.text,
-        passwordController.value.text);
+        passwordController.value.text,
+        mobileController.value.text);
+
     if (user != null) {
-      _userController.box.remove('user');
-      _userController.box.write('user', user.toMap());
-      _userController.user = user;
-      _userController.update();
+      print(user.toMap());
+      await _userController.saveAuthState(user);
       Snackbars.showSuccess("Successfully Saved ");
     } else {
       Snackbars.showError("There Was an Error ");

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/routes.dart';
 import '../../../main.dart';
-import 'notification_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
