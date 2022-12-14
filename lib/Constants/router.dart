@@ -1,5 +1,7 @@
 import 'package:brain/BusinessLayer/bindings/home_binding.dart';
+import 'package:brain/BusinessLayer/bindings/services_binding.dart';
 import 'package:brain/Constants/routes.dart';
+import 'package:brain/PresentationLayer/screens/public/mini_services_screen.dart';
 import 'package:brain/PresentationLayer/screens/public/services_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -21,7 +23,13 @@ List<GetPage<dynamic>> router = [
   GetPage(
       name: AppRoutes.homepage, page: () => HomePage(), binding: HomeBinding()),
   GetPage(
-      name: AppRoutes.services, page: () => Services(), binding: HomeBinding()),
+      name: AppRoutes.services,
+      page: () => Services(),
+      binding: ServicesBinding()),
+  GetPage(
+    name: AppRoutes.miniservice,
+    page: () => MiniServiceScreen(),
+  ),
   GetPage(
       name: AppRoutes.notifications,
       page: () => Notifications(),

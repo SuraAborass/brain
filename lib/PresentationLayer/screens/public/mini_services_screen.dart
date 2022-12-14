@@ -1,5 +1,5 @@
-import 'package:brain/BusinessLayer/Controllers/services_controller.dart';
-import 'package:brain/PresentationLayer/widgets/service_item.dart';
+import 'package:brain/BusinessLayer/Controllers/mini_services_controller.dart';
+import 'package:brain/PresentationLayer/widgets/mini_service_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,10 +8,10 @@ import '../../widgets/drawer.dart';
 import '../../widgets/title.dart';
 import 'button_navigation_bar.dart';
 
-class Services extends StatelessWidget {
-  Services({Key? key}) : super(key: key);
-  final ServicesController _servicesController = Get.find();
-
+class MiniServiceScreen extends StatelessWidget {
+  MiniServiceScreen({super.key});
+  final MiniServicesController miniServicesController =
+      Get.put(MiniServicesController(Get.arguments[0]));
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -24,14 +24,14 @@ class Services extends StatelessWidget {
             appBar: myAppBar(context),
             bottomNavigationBar: const NavBar(),
             body: GetBuilder(
-                init: _servicesController,
+                init: miniServicesController,
                 builder: (context) {
                   return SingleChildScrollView(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          pageTitle('Services'.tr),
+                          pageTitle(miniServicesController.service.name),
                           Padding(
                               padding: EdgeInsets.only(left: 20, right: 20),
                               child: Column(
@@ -41,16 +41,21 @@ class Services extends StatelessWidget {
                                   ),
                                   SizedBox(
                                     height: Get.height - 300,
-                                    child: ListView.builder(
-                                      itemCount:
-                                          _servicesController.services.length,
-                                      itemBuilder:
-                                          (BuildContext context, int index) {
-                                        return ServicesItem(
-                                            service: _servicesController
-                                                .services[index]);
-                                      },
-                                    ),
+                                    child: miniServicesController.loading.value
+                                        ? Center(
+                                            child: CircularProgressIndicator(),
+                                          )
+                                        : ListView.builder(
+                                            itemCount: miniServicesController
+                                                .miniservices.length,
+                                            itemBuilder: (BuildContext context,
+                                                int index) {
+                                              return MiniServiceItem(
+                                                  miniService:
+                                                      miniServicesController
+                                                          .miniservices[index]);
+                                            },
+                                          ),
                                   ),
                                 ],
                               ))

@@ -1,5 +1,7 @@
+import 'package:brain/Constants/routes.dart';
 import 'package:brain/DataAccessLayer/Models/service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../Constants/colors.dart';
 import '../../Constants/font_styles.dart';
@@ -14,7 +16,9 @@ class ServicesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(AppRoutes.miniservice, arguments: [service]);
+      },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 8),
         height: 150,
