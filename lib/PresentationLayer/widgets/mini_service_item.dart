@@ -2,12 +2,15 @@ import 'package:brain/Constants/font_styles.dart';
 import 'package:brain/DataAccessLayer/Models/mini_service.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../Constants/colors.dart';
+import '../screens/public/mini_service_details.dart';
 
 class MiniServiceItem extends StatelessWidget {
-  MiniServiceItem({super.key, required this.miniService});
+  MiniServiceItem({super.key, required this.miniService,});
   final MiniService miniService;
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,16 @@ class MiniServiceItem extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: BrainColors.grey,
-              image: DecorationImage(
+              /*image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: CachedNetworkImageProvider(miniService.icon)),
+                  image: CachedNetworkImageProvider(miniService.icon)),*/
+            ),
+            child: InkWell(
+              onTap: ()=> Get.to(MiniServiceDetails(miniService: miniService,)),
+              child: Hero(
+                tag: "mini service",
+                child: Image(image: CachedNetworkImageProvider(miniService.icon),fit: BoxFit.cover),
+              ),
             ),
           ),
           Expanded(

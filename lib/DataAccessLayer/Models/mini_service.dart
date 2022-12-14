@@ -8,6 +8,7 @@ class MiniService {
   final String icon;
   final String price_minimum;
   final String price_maximum;
+  final String service;
   MiniService({
     required this.id,
     required this.name,
@@ -15,6 +16,7 @@ class MiniService {
     required this.icon,
     required this.price_minimum,
     required this.price_maximum,
+    required this.service,
   });
 
   Map<String, dynamic> toMap() {
@@ -25,6 +27,7 @@ class MiniService {
       'icon': icon,
       'price_minimum': price_minimum,
       'price_maximum': price_maximum,
+      'service': service,
     };
   }
 
@@ -36,6 +39,7 @@ class MiniService {
       icon: map['icon'] as String,
       price_minimum: num.parse(map['price_minimum'].toString()).toString(),
       price_maximum: num.parse(map['price_maximum'].toString()).toString(),
+      service: map['service'] as String,
     );
   }
 
