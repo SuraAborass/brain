@@ -1,7 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 
 import '../../../BusinessLayer/Controllers/notification_controller.dart';
+import '../../../Constants/colors.dart';
+import '../../../main.dart';
 import '../../widgets/appbar.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/notification_item.dart';
@@ -29,7 +33,12 @@ class Notifications extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  pageTitle('Notifications'.tr),
+                  Row(
+                    children: [
+                      Expanded(flex:3,child: pageTitle('Notifications'.tr)),
+                      Expanded(child: MyHomePage())
+                    ],
+                  ),
                   Column(
                     children: [
                       const SizedBox(
@@ -54,3 +63,80 @@ class Notifications extends StatelessWidget {
         ));
   }
 }
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+  @override
+  void initState(){
+    super.initState();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if(notification !=null && android != null ){
+        flutterLocalNotificationsPlugin.show(
+            notification.hashCode,
+            notification.title,
+            notification.body,
+            NotificationDetails(
+              android: AndroidNotificationDetails(
+                  channel.id,
+                  channel.name,
+                  playSound: true,
+                  channelDescription: channel.description,
+                  color: BrainColors.primary,
+                  icon: '@mipmap/launcher_icon'),));
+      }
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('Anew Message was published');
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if(notification !=null && android != null){
+        showDialog(context: context, builder: (_){
+          return AlertDialog(
+            title: Text(''),
+            content: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text(notification.body.toString())],
+              ),
+            ),
+          );
+        });
+      }
+    });
+  }
+
+  void showNotification(){
+    setState(() {
+      _counter++;
+    });
+    flutterLocalNotificationsPlugin.show(
+        0, 'testing ${_counter}', 'anything',
+        NotificationDetails(
+            android: AndroidNotificationDetails(
+              channel.id,
+              channel.name,
+              channelDescription: channel.description,
+              importance: Importance.high,
+              color: BrainColors.primary,
+              icon: '@mipmap/launcher_icon',
+            )
+        ));
+  }
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(icon: Icon(Icons.notifications),
+      color: BrainColors.secondary,
+      onPressed: showNotification,
+    );
+  }
+}
+
+
+

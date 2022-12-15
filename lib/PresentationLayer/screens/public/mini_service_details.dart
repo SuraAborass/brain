@@ -27,8 +27,8 @@ class MiniServiceDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Continue'.tr,
-                    style: AppTextStyles.boldBodySmall.copyWith(color: BrainColors.White)),
+                Text('Get the service'.tr,
+                    style: AppTextStyles.boldBodyMedium.copyWith(color: BrainColors.White)),
               ],
             )),
       ),
@@ -60,42 +60,50 @@ class MiniServiceDetails extends StatelessWidget {
               Padding(padding: EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Expanded(child: Text(miniService.description,
-                    style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),),),
-                  Container(
-                    height: 50,
-                    width: deviceSize.width,
-                    color: BrainColors.lightWhite,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(miniService.description,
+                            style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(height: 50, width: deviceSize.width, color: BrainColors.softGrey,
                     child: Row(
                       children: [
                         Container(height: 50,width: 15, color: BrainColors.primary,),
-                        Expanded(child: Row(children: [
-                          Text("Maximum price: ",style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black) ,textAlign: TextAlign.start),
-                          Text(miniService.price_maximum,style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),)
+                        Expanded(
+                            child: Row(children: [
+                                  Text("Maximum price: ",style: AppTextStyles.normalBodyMedium
+                                      .copyWith(color: Colors.black),
+                                      textAlign: TextAlign.start),
+                                  Text(miniService.price_maximum,style: AppTextStyles.normalBodyMedium
+                                      .copyWith(color: Colors.black),)
                         ],))
                       ],
                     ),
                   ),
                   const SizedBox(height: 15,),
-                  Container(
-                    height: 70,
-                    width: deviceSize.width,
-                    color: BrainColors.lightWhite,
+                  Container(height: 70, width: deviceSize.width, color: BrainColors.softGrey,
                     child: Row(
                       children: [
                         Container(height: 70,width: 15, color: BrainColors.primary,),
-                        Expanded(child: Row(children: [
-                         Text("Minimum price: ",style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),),
-                          Expanded(child: Text(miniService.price_minimum,style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),))
-                        ],))
+                        Expanded(
+                          child: Row(children: [
+                                    Text("Minimum price: ",style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),),
+                                    Text(miniService.price_minimum,style: AppTextStyles.normalBodyMedium.copyWith(color: Colors.black),)
+                          ],),
+                        )
                       ],
                     ),
                   ),
                   const SizedBox(height: 15,),
-                  Container(
-                    height: 50,
-                    width: 100,
-                    color: BrainColors.lightWhite,
+                  Container(height: 50, width: deviceSize.width, color: BrainColors.softGrey,
                     child: Row(
                       children: [
                         Container(height: 50,width: 15, color: BrainColors.primary,),

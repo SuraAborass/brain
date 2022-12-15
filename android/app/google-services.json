@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "618339527441",
-    "project_id": "brain-7eed1",
-    "storage_bucket": "brain-7eed1.appspot.com"
+    "project_number": "525319336707",
+    "project_id": "brain-26067",
+    "storage_bucket": "brain-26067.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:618339527441:android:00e3e2c57e0bb0b09abab0",
+        "mobilesdk_app_id": "1:525319336707:android:09b3c7fba20f6d5effef36",
         "android_client_info": {
           "package_name": "com.example.brain"
         }
       },
       "oauth_client": [
         {
-          "client_id": "618339527441-6ap1c7lhs2d13jov6m5nq6r4ubkng216.apps.googleusercontent.com",
+          "client_id": "525319336707-9ccjrvqchevbg8ubmidsqas1hmc0cek2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDRfzMREbEAe18jUsswGGVoREuI6WIs820"
+          "current_key": "AIzaSyAmUnr3MWbnH3AKfMfAW7aJGqUqpyBbI5U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "618339527441-6ap1c7lhs2d13jov6m5nq6r4ubkng216.apps.googleusercontent.com",
+              "client_id": "525319336707-9ccjrvqchevbg8ubmidsqas1hmc0cek2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

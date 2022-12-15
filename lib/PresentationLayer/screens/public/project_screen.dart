@@ -2,7 +2,6 @@ import 'package:brain/Constants/font_styles.dart';
 import 'package:brain/DataAccessLayer/Models/project.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Constants/colors.dart';
 
 class ProjectScreen extends StatelessWidget {
